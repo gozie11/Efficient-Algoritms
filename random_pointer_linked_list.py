@@ -1,5 +1,5 @@
 #Creatin a deep comy of a linked list with random pointers
-
+# Writing this code was much easier thanks to the help of github copilot
 
 
 class Node:
