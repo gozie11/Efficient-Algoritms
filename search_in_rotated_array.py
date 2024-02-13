@@ -1,4 +1,4 @@
-## this is my first attempt. It calculates mid wrong in an array of size 2. It will give you a negative index.
+## this is my first attempt. It does not succeed in finding the target.
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
