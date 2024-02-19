@@ -6,9 +6,9 @@ def isSubTree(self, root:Optional[TreeNode], subTree: Option[TreeNode])-> bool:
 
   # recursively call this function to chekc the children of the original tree against the subtree. Get it?
   return(
-    isSubTree(root.left, subTree) 
+    self.isSubTree(root.left, subTree) 
     or
-    isSubTree(root.right, subTree) 
+    self.isSubTree(root.right, subTree) 
   )
 
 
@@ -18,7 +18,7 @@ def sameTree(self, s: Optional[TreeNode], r: Optional[TreeNode]) -> bool:
 
   # build up recursively if both trees exist
   if s and r and s.val == r.val:
-    return(sameTree(s.left, r.left) and
-          sameTrre(s.right, r.right))
+    return(self.sameTree(s.left, r.left) and
+          self.sameTrre(s.right, r.right))
 
   return False
