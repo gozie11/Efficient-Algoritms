@@ -17,7 +17,7 @@ def sameTree(self, s: Optional[TreeNode], r: Optional[TreeNode]) -> bool:
   if not s and not r: return True
 
   # build up recursively if both trees exist
-  if s and r:
+  if s and r and s.val == r.val:
     return(sameTree(s.left, r.left) and
           sameTrre(s.right, r.right))
 
