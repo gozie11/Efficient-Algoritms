@@ -7,7 +7,7 @@ class TimeMap:
         if key in self.times:
             self.times[key].append([value,timestamp])
         else:
-            self.times[key]=[]
+            self.times[key]=[[value,timestamp]] #my biggest mistake was initializing this incorrectly with an empty list
 
     def get(self, key: str, timestamp: int) -> str:
         #returns the greatest value <= timestamp
@@ -18,7 +18,7 @@ class TimeMap:
         while l <= r:
             m = (l+r) // 2
             if values[m][1] <= timestamp:
-                res = values[m][0]
+                res = values[m][0] #I incrorrectly changed this +=
                 l = m + 1
             else:
                 r = m - 1
