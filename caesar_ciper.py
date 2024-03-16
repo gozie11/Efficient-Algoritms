@@ -5,31 +5,25 @@ import math
 
 
 # Add any helper functions you may need here
+def rotate(char, r_f):
+  if char.isdigit():
+    return chr(    (ord(char) + r_f - ord('0')) % 10 + ord('0')  ) 
+  elif char.islower():
+    return chr(    (ord(char) + r_f - ord('a')) % 26 + ord('a')  ) 
+  else:
+    return chr(    (ord(char) + r_f - ord('A')) % 26 + ord('A')  ) 
 
-
+  
 def rotationalCipher(input_str, rotation_factor):
   # Write your code here
   if not input_str or not rotation_factor: return input_str
-
-  res = ""
-  
+  res = ""  
   for char in input_str:
     if char.isalnum():
-      if char.isdigit():
-        res += chr( ord(char) - ord('0') + rotation_factor % 10 ) 
-      
+      res += rotate(char,rotation_factor)      
     else: res += char
     
   return res
-
-
-
-
-
-
-
-
-
 
 
 # These are the tests we use to determine if the solution is correct.
