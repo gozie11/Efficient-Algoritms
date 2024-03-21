@@ -1,8 +1,28 @@
 import math
-# Add any extra import statements you may need here
 
+def findMaxProduct(arr):
+  # Write your code here
+  import heapq # Major key
+  #heappush(list, int) , heappop(list, int)
+  res = []
+  heap = []
+  for i in range(len(arr)):
+    heapq.heappush(heap, arr[i])
+    if i < 2: 
+      res.append(-1)
+      continue
+    if len(heap) > 3 :
+      #the pop will remove the smallest element from the heap, naturally leaving us with the greatest 3 elements.
+      heapq.heappop(heap)
+      prod = heap[0] * heap[1] * heap[2]
 
-# Add any helper functions you may need here
+    else:
+      
+      prod = heap[0] * heap[1] * heap[2]
+        
+    res.append(prod)
+  return res
+
 
 
 def findMaxProduct(arr):
