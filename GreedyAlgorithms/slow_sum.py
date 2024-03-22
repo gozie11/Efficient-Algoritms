@@ -20,6 +20,20 @@ Add 7 + 2 for a penalty of 9. Now the array is [9, 1]
 Add 9 + 1 for a penalty of 10. The penalties sum to 26.
 """
 
+
+#optimization : sort the array and take a cumulative sum 
+#O(n * logn)
+#[5 , 3, 1, 10] 
+# = [5, 8, 9, 19]
+
+def getTotalTime(arr):
+  arr.sort(reverse=True)
+  for i in range(i, len(arr)):
+    arr[i] = arr[i] + arr[i-1]
+
+  return sum(arr[1::])
+
+  
 #First attempt : 
 #time complexity = O(n^2)
 #space complexity = 0(1)   
