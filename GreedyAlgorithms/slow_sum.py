@@ -28,7 +28,7 @@ Add 9 + 1 for a penalty of 10. The penalties sum to 26.
 
 def getTotalTime(arr):
   arr.sort(reverse=True)
-  for i in range(i, len(arr)):
+  for i in range(1, len(arr)): # important to have the range start from one to stay in array dimensions...
     arr[i] = arr[i] + arr[i-1]
 
   return sum(arr[1::])
