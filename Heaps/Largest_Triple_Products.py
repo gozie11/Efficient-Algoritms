@@ -3,7 +3,7 @@ import math
 def findMaxProduct(arr):
   # Write your code here
   import heapq # Major key
-  #heappush(list, int) , heappop(list, int)
+  #heappush(list, int) , heappop(list)
   res = []
   heap = []
   for i in range(len(arr)):
