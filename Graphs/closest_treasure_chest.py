@@ -1,5 +1,7 @@
 class Solution:
     def islandsAndTreasure(self, grid: List[List[int]]) -> None:
+        # I tried to dfs a Bfs problem..
+        #
         
         # if location is treasure return 0
 
