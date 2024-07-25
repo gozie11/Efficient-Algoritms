@@ -56,7 +56,7 @@ class Solution:
 class Solution:
     def islandsAndTreasure(self, grid: List[List[int]]) -> None:
         # I tried to dfs a Bfs problem..
-        #
+        #It can probably be done this way but the time complexity would be god awful.
         
         # if location is treasure return 0
 
@@ -64,7 +64,10 @@ class Solution:
         # - What do we want to return? Are we modifying the original grid or make new one
         # - DFS. Seems like the base case is when we find a 0 in the grid, however... that 
         # is not always going to happen. e.g. a 1 sized grid with only -1
-        # Struggling with thinking my plan out all thr way through.
+        # Struggling with thinking my plan out all the way through.
+
+        # I need to start trying to reverse engineer the solution when I get stuck.
+        # Start with the solution in mind and then reverse the steps to get there. Talk outloud always.
 
         ROWS, COLS = len(grid), len(grid[0])
 
