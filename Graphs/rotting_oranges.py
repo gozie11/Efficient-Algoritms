@@ -1,3 +1,79 @@
+#07/27/24 2:21. I will track elapsed time to write the solution and do all checks next time.
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        # U: want to return the minimum amount of time in takes for there to be zero fresh furits left
+        # M: Going to use a BFS algorithm
+        # P: visited set, q = deque, variable for elapsed time, 
+        #   add all rotten fruit to q first, 
+        #   mark infected fruits as such, increment time after each infection round.
+        #   At the end, check each row and see if there are any fresh fruit left
+        #   return time - 1 if there are no 1s, otherwise return -1 
+        #I: Done
+        #R: 
+        #E : Down below
+
+        #R: reflect. There's a glaring whole in my first attempt at this problem where i don't check the number of 
+        #   fresh oranges I have to begin with. I will do this in the preprocessing step. This way,
+        # if there are 0 fresh oranges I can automatically return 0 without doing extra work. 
+
+        visited = set() # set of tuples
+        q = deque() # list of lists
+        fresh_fruit = 0
+
+        ROWS , COLS = len(grid), len(grid[0])
+        
+
+        # add all the rotten fruit to the array firstly
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] == 2: 
+                    visited.add((r,c))
+                    q.append([r,c])
+                if grid[r][c] == 1: fresh_fruit += 1
+
+        if not fresh_fruit : return 0
+
+        def infect(r,c) -> None:
+            if min(r,c) < 0 or c >= COLS or r >= ROWS or (r,c) in visited or grid[r][c] == 0: return
+            grid[r][c] = 2
+            #I still feel like i can get away with not using a visited set and just use the fact that the grid is 2
+            visited.add((r,c))
+            q.append([r,c])
+
+        time = 0
+
+        while q:
+
+            for fruit in range(len(q)): # I learned that you cannot just iterate on (for fr in q) because the q changes 
+                                        # during the iteration. However I guess the length doesn't change after initial 
+                                        # creation of the iterator.
+                #get the next fruit to be rotted
+                r,c = q.popleft()
+
+                infect(r+1, c)
+                infect(r-1, c)
+                infect(r, c-1)
+                infect(r, c+1)
+
+            time += 1
+
+        for row in grid:
+            # check if any fruit survived being rotted
+            if 1 in row : return -1
+
+        # Time: O(ROWS * COLS)
+        # Space: O(ROWS * COLS)
+
+        return (time - 1)
+
+
+
+
+
+
+
+
+
 #chat GPT tweaked corrections, 
 
 class Solution:
