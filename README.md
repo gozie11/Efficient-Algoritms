@@ -9,3 +9,10 @@ I'm taking these questions from leetcode.com, and learning the solutions with th
 
 Directories should have all first letters capitalized e.g. HashMap, LinkedList, etc.
 Files should be named after the problem they solve. Shortened names are fine if they make sense. Exchange spaces for _underscores. e.g. find_shortest_path.py
+
+
+### Creating new folders in github
+
+Choose create new file
+Add a / to the end of the name of the new folder.
+That's it...
