@@ -40,4 +40,29 @@ class Solution:
                 else: stack.pop()
         return False if stack else True
 
+# I'm back a year later. I failed to solve this problem at a meta interview.... holy cow....
+# today's attempt. passes first try.
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+        st = []
+
+        closed = {
+            ")":"(",
+            "}":"{",
+            "]":"[",
+        }
+
+        opened = closed.values()
+
+        for i, element in enumerate(s):
+            if element in opened:
+                st.append(element)
+            else:
+                if not st: return False
+                if st[-1] == closed[element] : st.pop()
+                else: return False
+        
+        return True if not st else False
 
